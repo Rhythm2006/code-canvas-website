@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Code Canvas — write code, draw on it</title>
+<meta name="description" content="A desktop code editor with a drawing canvas layered straight over your code. Multi-file projects, a real terminal, and toolchains you already have.">
+
+<!-- To cut a new release: bump VERSION here and the two download URLs below. -->
+<meta name="version" content="1.0.0">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cpath d='M13 10 L7 16 L13 22 M19 10 L25 16 L19 22' fill='none' stroke='%2300ff41' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<canvas id="fire" aria-hidden="true"></canvas>
+<div id="veil" aria-hidden="true"></div>
+
+<main>
+
+  <header class="hero">
+    <h1 id="title" class="title" aria-label="Code Canvas">CODE CANVAS</h1>
+    <p class="tagline">Write code. Draw on it.</p>
+    <p class="blurb">
+      A desktop code editor with a drawing canvas layered straight over the code.
+      Sketch the explanation on top of the program you are running.
+    </p>
+
+    <a class="download"
+       href="https://github.com/Rhythm2006/Code-Canvas/releases/download/v1.0.0/Code-Canvas-1.0.0-arm64.dmg">
+      Download for macOS
+    </a>
+
+    <p class="meta">Apple silicon · 143 MB · macOS 13+ · free &amp; open source</p>
+  </header>
+
+  <section class="panel" id="install">
+    <div class="bar"><i></i><i></i><i></i><span>install</span></div>
+    <div class="body">
+      <p class="cmd"><span class="p">$</span> open the <b>.dmg</b> you just downloaded</p>
+      <p class="cmd"><span class="p">$</span> drag <b>Code Canvas</b> into <b>Applications</b></p>
+      <p class="cmd"><span class="p">$</span> launch it — the first time, <b>right-click &rarr; Open</b></p>
+      <p class="out">The build is not code-signed, so macOS asks once. After that it opens normally.</p>
+      <p class="cmd"><span class="p">$</span> verify the download, if you like</p>
+      <p class="out code">shasum -a 256 -c SHA256SUMS.txt</p>
+      <p class="out dim">
+        <a href="https://github.com/Rhythm2006/Code-Canvas/releases/download/v1.0.0/SHA256SUMS.txt">SHA256SUMS.txt</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>What it does</h2>
+    <ul>
+      <li><b>Draw on your code.</b> A transparent canvas sits over the editor, sharing one surface. One key flips which layer takes input.</li>
+      <li><b>Annotations travel with the project.</b> Sketches are saved per file alongside your code.</li>
+      <li><b>A real terminal.</b> A genuine login shell in the output panel — <b>Run</b> types the command, and you can type back to answer <code>input()</code> prompts.</li>
+      <li><b>Runs many languages</b> using the toolchains already on your machine: Python, Node, Ruby, PHP, Go, C, C++, Rust, Java.</li>
+      <li><b>Export</b> code + sketch as one PNG snapshot, or the drawing alone as PNG or SVG.</li>
+      <li><b>No license key, no trial, no watermark.</b> The drawing engine is MIT, and the fonts ship inside the app — it works fully offline.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <a href="https://github.com/Rhythm2006/Code-Canvas">source</a>
+    <span>/</span>
+    <a href="https://github.com/Rhythm2006/Code-Canvas/releases">releases</a>
+    <span>/</span>
+    <a href="https://github.com/Rhythm2006/Code-Canvas/blob/main/CHANGELOG.md">changelog</a>
+    <p class="fine">MIT licensed · built with Electron, Monaco &amp; Excalidraw</p>
+  </footer>
+
+</main>
+
+<div id="scanlines" aria-hidden="true"></div>
+
+<script src="fire.js" defer></script>
+<script src="main.js" defer></script>
+</body>
+</html>
